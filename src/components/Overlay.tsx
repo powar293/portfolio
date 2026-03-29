@@ -1,16 +1,10 @@
 "use client";
 
 import { useContext } from "react";
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, MotionValue } from "framer-motion";
 import { ScrollContext } from "./ScrollyCanvas";
 
-export default function Overlay() {
-  const scrollYProgress = useContext(ScrollContext);
-
-  if (!scrollYProgress) {
-    return null;
-  }
-
+function OverlayInner({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   // Section 1: 0% to 20%
   const opacity1 = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 1, 0]);
   const y1 = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
@@ -77,4 +71,14 @@ export default function Overlay() {
       </div>
     </div>
   );
+}
+
+export default function Overlay() {
+  const scrollYProgress = useContext(ScrollContext);
+
+  if (!scrollYProgress) {
+    return null;
+  }
+
+  return <OverlayInner scrollYProgress={scrollYProgress} />;
 }
