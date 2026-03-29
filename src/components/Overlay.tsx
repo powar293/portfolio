@@ -3,7 +3,6 @@
 import { useContext } from "react";
 import { motion, useTransform } from "framer-motion";
 import { ScrollContext } from "./ScrollyCanvas";
-import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Overlay() {
   const scrollYProgress = useContext(ScrollContext);
@@ -28,15 +27,15 @@ export default function Overlay() {
     <div className="absolute inset-0 z-10 w-full pointer-events-none flex items-center">
       
       {/* Social Links Header sticky */}
-      <div className="absolute top-6 right-6 flex gap-6 z-50 pointer-events-auto">
-        <a href="#" target="_blank" className="text-white/60 hover:text-white transition-colors">
-          <Linkedin className="w-6 h-6" />
+      <div className="absolute top-6 right-8 flex gap-8 z-50 pointer-events-auto text-sm font-medium tracking-widest uppercase">
+        <a href="https://www.linkedin.com/public-profile/settings/?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
+          LinkedIn
         </a>
-        <a href="#" target="_blank" className="text-white/60 hover:text-white transition-colors">
-          <Github className="w-6 h-6" />
+        <a href="https://github.com/powar293" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
+          GitHub
         </a>
         <a href="mailto:prathmeshpowar29@gmail.com" className="text-white/60 hover:text-white transition-colors">
-          <Mail className="w-6 h-6" />
+          Email
         </a>
       </div>
 
